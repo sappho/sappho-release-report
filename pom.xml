@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>uk.org.sappho.pom</groupId>
+        <artifactId>sappho</artifactId>
+        <version>3</version>
+    </parent>
+
+    <groupId>uk.org.sappho.maven.release</groupId>
+    <artifactId>sappho-release-report-project</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, version 3</name>
+            <url>http://www.gnu.org/licenses/agpl.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Andrew Heald</name>
+            <organization>Sappho OSS</organization>
+            <url>http://sappho.org.uk</url>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.plugin.api.version>2.0</maven.plugin.api.version>
+        <scm.version>1.7</scm.version>
+        <jersey.client.version>1.13</jersey.client.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>${maven.plugin.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-api</artifactId>
+                <version>${scm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-manager-plexus</artifactId>
+                <version>${scm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-providers-standard</artifactId>
+                <version>${scm.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-local</artifactId>
+                <version>${scm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>1.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.shared</groupId>
+                <artifactId>maven-plugin-testing-harness</artifactId>
+                <version>1.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>2.0.7</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-client</artifactId>
+                <version>${jersey.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>maven-releasereport-plugin</module>
+        <module>release-report</module>
+        <module>maven-releasereport-plugin-test</module>
+    </modules>
+
+</project>
